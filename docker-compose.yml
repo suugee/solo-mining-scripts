@@ -24,6 +24,9 @@ services:
    ports:
     - "8000:8000"
    devices:
+    - /dev/sgx_provison
+    - /dev/sgx_enclave
+    - /dev/isgx
 
    environment:
     - EXTRA_OPTS=--cores=${CORES}
