@@ -99,7 +99,7 @@ function status()
 		fi
 		
 		if [ ${diff[0]} -ge "20" ] || [ ${diff[1]} -ge "20" ]; then
-			curl "https://oapi.dingtalk.com/robot/send?access_token=2707beb0496b8055a02ba8c1e431353c4709f84c8d3ebbb5b4b72d6a6584f695" -H "Content-Type:application/json" -d "{\"msgtype\": \"text\", \"text\": {\"content\": \"温馨提醒：Khala区块差值过大，请上机检查。\"}}"
+			curl "https://oapi.dingtalk.com/robot/send?access_token=xxxxxx" -H "Content-Type:application/json" -d "{\"msgtype\": \"text\", \"text\": {\"content\": \"温馨提醒：Khala区块差值过大，请上机检查。\"}}"
 		fi
 
 		clear
