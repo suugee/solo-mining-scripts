@@ -97,6 +97,10 @@ function status()
 		else
 			gas_balance=$(echo '\E[1;32m'${balance}'\E[0m'"PHA")
 		fi
+		
+		if [ ${diff[0]} -ge "20" ] || [ ${diff[1]} -ge "20" ]; then
+			curl "https://oapi.dingtalk.com/robot/send?access_token=2707beb0496b8055a02ba8c1e431353c4709f84c8d3ebbb5b4b72d6a6584f695" -H "Content-Type:application/json" -d "{\"msgtype\": \"text\", \"text\": {\"content\": \"温馨提醒：Khala区块差值过大，请上机检查。\"}}"
+		fi
 
 		clear
 		printf "
@@ -131,7 +135,7 @@ function status()
 		echo "------------- 请等待矿工注册状态变为「已注册」再进行链上操作 -------------"
 		echo "------------- 如果链同步完成，但pherry高度为空，请进群询问 --------------"
 
-		for i in `seq 60 -1 0`; do
+		for i in `seq 300 -1 0`; do
 			echo -ne "--------------------------  剩余 ${i}s 刷新   ------------------------------\r"
 			sleep 1
 		done
