@@ -184,7 +184,6 @@ case "$1" in
 		config $2
 		;;
 	start)
-		check_version
 		start
 		;;
 	presync)
